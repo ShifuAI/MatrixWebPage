@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .matrix {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .matrix span {
+            position: absolute;
+            color: lime;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            animation: falling 200s linear infinite; /* Set animation to a very large duration */
+        }
+
+        @keyframes falling {
+            0% { transform: translateY(-20px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .login-form {
+            position: absolute;
+            top: 20vh; /* Position the form in the middle of the viewport */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+           
+        }
+
+        .login-form input {
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid lime; /* Add a default border to the input */
+        }
+
+        .login-form h2 {
+            
+            color: lime; /* Set the text color to green */
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            
+            background-color: black;
+            color: lime; /* Set the input background and text color */
+            border-radius: 5px;
+        }
+
+        .login-form input[type="text"]::placeholder,
+        .login-form input[type="password"]::placeholder {
+            color: lime; /* Set input placeholder text color */
+        }
+
+        .login-form input[type="text"]:hover,
+        .login-form input[type="password"]:hover {
+            border-color: pink; /* Change input border color to pink on hover */
+        }
+
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus {
+            border-color: pink; /* Maintain pink border color on focus */
+        }
+        .password-icon {
+  position: absolute;
+  top: 55%;
+  right: 41px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-icon i {
+  color: lime;
+}
+
+.password-icon i:hover {
+  color: pink;
+}
+
+        .login-form button {
+            background-color: lime; /* Set the button background color to green */
+            color: black; /* Set the button text color to black */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin: 20px;
+        }
+
+        .login-form button:hover {
+            border-color: pink; /* Change button border color to pink on hover */
+            background-color: black;
+            color: lime; /* Change button colors on hover */
+        }
+
+        .register-button {
+            background-color: lime; /* Set the button background color to green */
+            color: black; /* Set the button text color to black */
+            position: absolute;
+            top: 35vh; /* Position the button in the middle of the viewport vertically */
+            right: 60px; /* Position the button on the right side */
+            padding: 10px;
+            border-radius: 5px;
+        } 
+       
+
+        .register-button a {
+            text-decoration: none;
+            color: lime;
+            color: black; /* Set the button text color to black */
+            
+        }
+        .register-button:hover {
+    background-color: black;
+}
+.register-button:hover a {
+    color: lime; /* Change the button text color to pink on hover */
+}
+
+
+.logo {
+    width: 100px;
+    position: absolute;
+    top: -50px;
+    left: 80px;
+}
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="matrix"></div>
+
+    <div class="login-form">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Email" required>
+            <br>
+            <input type="password" id="password-field" class="password-field" placeholder="Password" required>
+            <span class="password-icon" onclick="togglePasswordVisibility()">
+                <i class="fa fa-eye"></i>
+            </span>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+        <div class="clickable-area">
+            <a href="#" style="color: lime;">Forgot email?</a> | <a href="#" style="color: lime;">Forgot password?</a>
+            <div class="register-button">
+                <a href="/register.js" target="_blank">Registration <span class="gun-icon">&#128299;</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="matrix">
+        <!-- Existing code -->
+        <div class="gun-shot"></div>
+    </div>
+      
+      <script src="MatrixAnimation.js"></script>
+      <script src="register.js"></script>
+      <script src="Registration.js"></script>
+      <script src="password.js"></script>
+</body>
+</html>

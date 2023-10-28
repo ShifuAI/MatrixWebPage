@@ -1,0 +1,100 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    
+    <style>
+             body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .matrix {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .matrix span {
+            position: absolute;
+            color: lime;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            animation: falling 200s linear infinite; /* Set animation to a very large duration */
+        }
+
+        @keyframes falling {
+            0% { transform: translateY(-20px); }
+            100% { transform: translateY(100vh); }
+        }
+        
+        /* Add your CSS styles here */
+        .register-form {
+            position: absolute;
+            top: 20vh; /* Position the form in the middle of the viewport */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+}
+
+.register-form input {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid lime;
+    background-color: black;
+    color: lime;
+    border-radius: 5px;
+}
+
+.register-form h2 {
+    color: lime;
+}
+
+.register-form button {
+    background-color: lime;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.register-form button:hover {
+    border-color: pink;
+    background-color: black;
+    color: lime;
+}
+
+    </style>
+</head>
+<body>
+    <div class="matrix"></div>
+    <div class="register-form">
+        <h2>Register</h2>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <br>
+            <input type="email" placeholder="Email" required>
+            <br>
+            <input type="password" placeholder="Password" required>
+            <br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script src="MatrixAnimation.js"></script>
+    <script src="register.js"></script>
+    <script src="Registration.js"></script>
+ 
+</body>
+</html>

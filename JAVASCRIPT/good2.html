@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .matrix {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .matrix span {
+            position: absolute;
+            color: lime;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            animation: falling 200s linear infinite; /* Set animation to a very large duration */
+        }
+
+        @keyframes falling {
+            0% { transform: translateY(-20px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .login-form {
+            position: absolute;
+            top: 20vh; /* Position the form in the middle of the viewport */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .login-form input {
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid lime; /* Add a default border to the input */
+        }
+
+        .login-form h2 {
+            color: lime; /* Set the text color to green */
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            background-color: black;
+            color: lime; /* Set the input background and text color */
+            border-radius: 5px;
+        }
+
+        .login-form input[type="text"]::placeholder,
+        .login-form input[type="password"]::placeholder {
+            color: lime; /* Set input placeholder text color */
+        }
+
+        .login-form input[type="text"]:hover,
+        .login-form input[type="password"]:hover {
+            border-color: pink; /* Change input border color to pink on hover */
+        }
+
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus {
+            border-color: pink; /* Maintain pink border color on focus */
+        }
+
+        .login-form button {
+            background-color: lime; /* Set the button background color to green */
+            color: black; /* Set the button text color to black */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-form button:hover {
+            border-color: pink; /* Change button border color to pink on hover */
+            background-color: black;
+            color: lime; /* Change button colors on hover */
+        }
+
+        .register-button {
+            position: absolute;
+            top: 50vh; /* Position the button in the middle of the viewport vertically */
+            right: 20px; /* Position the button on the right side */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border: 2px solid lime;
+            border-radius: 5px;
+        }
+
+        .register-button a {
+            text-decoration: none;
+            color: lime;
+        }
+
+        .gun-icon {
+            font-size: 24px;
+            vertical-align: middle;
+        }
+        .gun-shot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  animation: gunShot 0.5s linear;
+
+}
+.matrix-guy {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  animation: matrixGuyWalk 5s linear infinite;
+}
+
+@keyframes matrixGuyWalk {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100% - 100px);
+  }
+}
+@keyframes gunShot {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="matrix"></div>
+
+    <div class="login-form">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Email" required>
+            <br>
+            <input type="password" placeholder="Password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+        <div>
+            <a href="#" style="color: lime;">Forgot email?</a> | <a href="#" style="color: lime;">Forgot password?</a>
+        </div>
+    </div>
+
+  <div class="register-button">
+        <a href="#">Register <span class="gun-icon">&#128299;</span></a>
+    </div>
+    <div class="matrix">
+        <!-- Existing code -->
+        
+        <div class="gun-shot"></div>
+      </div>
+      
+
+    <script>
+        const matrix = document.querySelector('.matrix');
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()_+-={}[]|\\:;"<>,.?/';
+        const width = matrix.clientWidth;
+        const height = matrix.clientHeight;
+
+        for (let i = 0; i < 500; i++) {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.style.left = `${Math.floor(Math.random() * width)}px`;
+            span.style.top = `${Math.floor(Math.random() * height)}px`;
+            matrix.appendChild(span);
+        }
+        const registerButton = document.querySelector('.register-button');
+
+registerButton.addEventListener('click', () => {
+  // Code to trigger the gun shot animation
+  const gunShot = document.querySelector('.register-button');
+  gunShot.style.left = `${registerButton.offsetLeft}px`;
+gunShot.style.top = `${registerButton.offsetTop}px`;
+});
+    </script>
+
+</body>
+</html>
